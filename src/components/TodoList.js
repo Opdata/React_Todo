@@ -10,13 +10,12 @@ const Todolistdiv = styled.div`
   overflow-y: auto;
 `;
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
   return (
     <Todolistdiv>
-      <TodoListitem />
-      <TodoListitem />
-      <TodoListitem />
-      <TodoListitem />
+      {todos.map(todo => (
+        <TodoListitem todo={todo} key={todo.id} />
+      ))}
     </Todolistdiv>
   );
 };
