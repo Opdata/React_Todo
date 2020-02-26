@@ -3,6 +3,7 @@
 import React from 'react';
 import { MdCheckBox, MdRemoveCircleOutline, MdCheckBoxOutlineBlank } from 'react-icons/md';
 import styled from 'styled-components';
+import cn from 'classnames';
 
 const Maindiv = styled.div`
   padding: 1rem;
@@ -14,6 +15,15 @@ const Maindiv = styled.div`
 
   & + & {
     border-top: 1px solid #dee2e6;
+  }
+`;
+
+const Text = styled.div`
+  margin-left: 0.5rem;
+  flex: 1;
+  &.checked {
+    color: #adb5bd;
+    text-decoration: line-through;
   }
 `;
 
@@ -40,24 +50,16 @@ const Checkbox = styled.div`
     svg {
       color: #22b8cf;
     }
-    text {
-      color: #adb5bd;
-      text-decoration: line-through;
-    }
   }
 `;
 
-const Text = styled.div`
-  margin-left: 0.5rem;
-  flex: 1;
-`;
-
-const TodoListitem = () => {
+const TodoListitem = ({ todo }) => {
+  const { text, checked } = todo;
   return (
     <Maindiv>
-      <Checkbox>
-        <MdCheckBoxOutlineBlank />
-        <Text>할 일</Text>
+      <Checkbox className={cn('Checkbox', { checked })}>
+        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+        <Text className={cn('Text', { checked })}>{text}</Text>
       </Checkbox>
       <Remove>
         <MdRemoveCircleOutline />

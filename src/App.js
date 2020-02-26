@@ -8,6 +8,11 @@ const App = () => {
     {
       id: 1,
       text: '리액트 todo 1번째',
+      checked: false,
+    },
+    {
+      id: 2,
+      text: '리액트 todo 2번째',
       checked: true,
     },
   ]);
