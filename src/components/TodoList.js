@@ -4,7 +4,11 @@ import React from 'react';
 import styled from 'styled-components';
 import TodoListitem from './TodoListitem';
 
-const Todolistdiv = styled.div``;
+const Todolistdiv = styled.div`
+  min-height: 320px;
+  max-height: 513px;
+  overflow-y: auto;
+`;
 
 const TodoList = () => {
   return (
