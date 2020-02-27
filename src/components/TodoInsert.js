@@ -41,15 +41,26 @@ const Button = styled.button`
   }
 `;
 
-const TodoInsert = () => {
+const TodoInsert = ({ onInsert }) => {
   const [value, setValue] = useState('');
 
   const onChange = useCallback(e => {
     setValue(e.target.value);
   }, []);
 
+  const onSubmit = useCallback(
+    e => {
+      onInsert(value);
+      setValue('');
+
+      //submit은 브라우저 새고로침 발생시킨다.
+      // 이를 방지하는 기능
+      e.preventDefault();
+    },
+    [onInsert, value],
+  );
   return (
-    <MainForm>
+    <MainForm onSubmit={onSubmit}>
       <Input placeholder='할 일을 입력하세요' value={value} onChange={onChange} />
       <Button type='submit'>
         <MdAdd />
