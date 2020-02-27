@@ -53,8 +53,8 @@ const Checkbox = styled.div`
   }
 `;
 
-const TodoListitem = ({ todo }) => {
-  const { text, checked } = todo;
+const TodoListitem = ({ todo, onRemove }) => {
+  const { id, text, checked } = todo;
   return (
     <Maindiv>
       <Checkbox className={cn('Checkbox', { checked })}>
