@@ -62,7 +62,7 @@ const TodoListitem = ({ todo }) => {
         <Text className={cn('Text', { checked })}>{text}</Text>
       </Checkbox>
       <Remove>
-        <MdRemoveCircleOutline />
+        <MdRemoveCircleOutline onClick={() => onRemove(id)} />
       </Remove>
     </Maindiv>
   );
