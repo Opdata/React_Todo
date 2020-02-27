@@ -14,7 +14,7 @@ const TodoList = ({ todos }) => {
   return (
     <Todolistdiv>
       {todos.map(todo => (
-        <TodoListitem todo={todo} key={todo.id} />
+        <TodoListitem todo={todo} key={todo.id} onRemove={onRemove} />
       ))}
     </Todolistdiv>
   );
