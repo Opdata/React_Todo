@@ -10,7 +10,7 @@ const Todolistdiv = styled.div`
   overflow-y: auto;
 `;
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onRemove }) => {
   return (
     <Todolistdiv>
       {todos.map(todo => (
