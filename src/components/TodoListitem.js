@@ -53,11 +53,11 @@ const Checkbox = styled.div`
   }
 `;
 
-const TodoListitem = ({ todo, onRemove }) => {
+const TodoListitem = ({ todo, onRemove, onToggle }) => {
   const { id, text, checked } = todo;
   return (
     <Maindiv>
-      <Checkbox className={cn('Checkbox', { checked })}>
+      <Checkbox className={cn('Checkbox', { checked })} onClick={() => onToggle(id)}>
         {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
         <Text className={cn('Text', { checked })}>{text}</Text>
       </Checkbox>
